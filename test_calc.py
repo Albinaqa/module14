@@ -26,5 +26,22 @@ class CalcTest(unittest.TestCase):
         """Негативный, возведение в степень"""
         self.assertEqual(calc_me(4, 2,"^"), 'ERROR: Uknow operation')
 
+    def test_pow(self):
+        """Позитивный, возведение в степень"""
+        self.assertEqual(calc_me(4, 2,"^"), 16)
+
+    def test_symbols(self):
+        """Негативный, операция с символами"""
+        self.assertEqual(calc_me("a", "b","+"), "ERROR: now it is does not supported")
+
+    def test_symbols_n1(self):
+        """Позитивный, операция с символами Number1"""
+        self.assertEqual(calc_me(None, 5,"+"), "ERROR: send me Number1")
+
+    def test_symbols_n2(self):
+        """Позитивный, операция с символами Number2"""
+        self.assertEqual(calc_me(4, None,"+"), "ERROR: send me Number2")
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
